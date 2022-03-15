@@ -42,9 +42,12 @@ export function TransactionTable(){
                         <td>
                         {value.title}
                         </td>
-                        <td className={value.type}>{value.amount}</td>
+                        <td className={value.type}>{new Intl.NumberFormat('pt-BR',{
+                            style:'currency',
+                            currency:'BRL'
+                        }).format(value.amount)}</td>
                         <td>{value.category}</td>
-                        <td>{value.createdAt}</td>
+                        <td>{new Intl.DateTimeFormat('pt-BR').format(new Date(value.createdAt))}</td>
                     </tr>
                        ))
                    }
