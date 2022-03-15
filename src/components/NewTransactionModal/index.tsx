@@ -7,9 +7,8 @@ import Outcome from '../../assets/outcome.svg'
 
 import { FormEvent, useContext, useState } from 'react';
 
-import { api } from '../../services/api';
+import { useTransactions } from '../../hooks/TransactionContext';
 
-import { TransactionContext } from '../../TransactionContext';
 
 
 interface NewTransactionModalProps{
@@ -21,7 +20,7 @@ Modal.setAppElement('#root');
 
 export function NewTransactionModal({isOpen,onRequestClose}:NewTransactionModalProps){
 
-    const {createTransaction}=useContext(TransactionContext)
+    const {createTransaction}=useTransactions()
 
     const [type,setType]=useState('')
 

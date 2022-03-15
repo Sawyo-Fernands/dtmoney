@@ -3,12 +3,12 @@ import Icon from '../../assets/income.svg'
 import Outcome from '../../assets/outcome.svg'
 import Total from '../../assets/total.svg'
 import { useContext } from "react";
-import { TransactionContext } from "../../TransactionContext";
+import {  useTransactions } from "../../hooks/TransactionContext";
 
 
 export function Summary(){
 
-    const {transactions}=useContext(TransactionContext)
+    const {transactions}=useTransactions()
 
     const summary=transactions.reduce((acc,transaction)=>{
         if(transaction.type ==='deposit'){
