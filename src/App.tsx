@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import { GlobalStyle } from './styles/global';
 import {createServer, Model} from 'miragejs'
 import { NewTransactionModal } from './components/NewTransactionModal'
+import { TransactionProvider } from './TransactionContext';
 
 createServer({
 
@@ -61,6 +62,8 @@ export function App() {
 
   const [isNewTransactionModalOpen, setNewTransactionModalOpen] = useState(false);
 
+  
+
   function openModalTransaction() {
     setNewTransactionModalOpen(true);
   }
@@ -70,16 +73,16 @@ export function App() {
 
 
   return (
-    < >
-      <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={closeModalTransaction}/>
+    <TransactionProvider>
+        <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={closeModalTransaction}/>
 
-      <Header openModal={openModalTransaction}/>  
+        <Header openModal={openModalTransaction}/>  
 
-      <Dashboard/>
+        <Dashboard/>
 
-      
-    <GlobalStyle />
-    </>
+        
+      <GlobalStyle />
+    </TransactionProvider>
     
     
   );
