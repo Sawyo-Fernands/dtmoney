@@ -16,6 +16,16 @@ export const GlobalStyle =createGlobalStyle`
         --shape:#FFFFFF;
     }
 
+    body,button,textarea,input{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+    }
+
+    h2,h1,h3,h4,h5,h5,strong{
+        font-weight: 600;
+
+    }
+
    *{
     margin: 0;
     padding: 0;
