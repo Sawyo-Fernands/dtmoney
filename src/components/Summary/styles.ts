@@ -31,5 +31,7 @@ export const Container=styled.div`
            background-color: var(--green);
        }
     }
-   
+   @media (max-width:571px){
+    grid-template-columns: repeat(1,1fr);
+   }
 `
