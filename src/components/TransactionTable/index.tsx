@@ -7,7 +7,7 @@ interface Transactionprops{
     title:string;
     category:string;
     amount:number
-    createdAt:Date | string;
+    createdAt: Date | string;
     type:string;
 }
 
