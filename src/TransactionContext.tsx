@@ -18,7 +18,7 @@ type TransactionOmit=Omit<TransactionProps,'id' | 'createdAt'>
 
 interface TransactionContextProps{
     transactions:TransactionProps[];
-    createTransaction:(transaction:TransactionOmit)=>void;
+    createTransaction:(transaction:TransactionOmit)=>Promise<void>;
 }
 
 export const TransactionContext=createContext<TransactionContextProps>({} as TransactionContextProps)
@@ -34,9 +34,16 @@ export function TransactionProvider({children}:TransactionProviderProps){
 
     }, []);
 
-    function createTransaction(transaction:TransactionOmit){
+   async function createTransaction(transactionInput:TransactionOmit){
        
-            api.post('/transactions',transaction)
+          const response= await api.post('/transactions',{
+              ...transactionInput,
+                createdAt:new Date()
+
+            })
+          const { transaction }=response.data
+
+          setTransactions([...transactions,transaction])
     }
 
 
