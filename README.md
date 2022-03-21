@@ -1,7 +1,7 @@
 
 
 <p align="center">
-  <img src="src/assets/logo.svg" width="50%" alt="dt money">
+  <img src="/src/assets/logo.svg" width="50%" alt="dt money">
 </p>
 
 </br>
